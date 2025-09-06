@@ -181,7 +181,7 @@ input[type="checkbox"]:checked + div .nav-ref ul {
 
 .hero-img video {
     width: 100%;
-    height: 250px;
+    height: 320px;
     object-fit: cover;
     border-radius: 8px;
     display: block;
@@ -1413,7 +1413,7 @@ footer{
     }
     
     .hero-img video {
-        height: 200px;
+        height: 280px;
         border-radius: 6px;
     }
     
@@ -1486,7 +1486,7 @@ footer{
     }
     
     .hero-img video {
-        height: 180px;
+        height: 240px;
         border-radius: 4px;
     }
     
@@ -1831,11 +1831,11 @@ footer{
     
     .hero-img {
         flex: 1;
-        max-width: 50%;
+        max-width: 55%;
     }
     
     .hero-img video {
-        height: 350px;
+        height: 450px;
         border-radius: 12px;
     }
     .nav-ref{
@@ -1921,7 +1921,7 @@ footer{
         
         /* Hero Section - Desktop */
         .pj-hero {
-            padding: 6em 4em;
+            padding: 7em 4em;
             min-height: 80vh;
         }
         
@@ -1956,13 +1956,13 @@ footer{
         
         .hero-img{
             margin: 0;
-            max-width: 45%;
+            max-width: 70%;
             flex: 1;
         }
         
         .hero-img video{
             width: 100%;
-            height: 500px;
+            height: 700px;
             border-radius: 15px;
         }
         .pj-partner{
