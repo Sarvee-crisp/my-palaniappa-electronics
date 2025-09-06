@@ -468,36 +468,40 @@ input[type="checkbox"]:checked + div .nav-ref ul {
 
 .company-stats {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     margin: 2em 0;
-    gap: 1em;
+    gap: 1.5em;
+    width: 100%;
 }
 
 .stat-item {
     text-align: center;
-    padding: 1em;
+    padding: 1.5em 1em;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    flex: 1;
+    width: 100%;
+    max-width: 100%;
     transition: transform 0.3s ease;
+    box-sizing: border-box;
 }
 
 .stat-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .stat-number {
-    font-size: 2em;
+    font-size: 2.2em;
     font-weight: 700;
     color: #67E7EF;
     margin-bottom: 0.5em;
 }
 
 .stat-label {
-    font-size: 0.9em;
+    font-size: 1em;
     color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
     letter-spacing: 1px;
+    line-height: 1.3;
 }
 
 .team-structure {
@@ -1447,6 +1451,24 @@ footer{
         padding: 0.7em 0.8em;
         font-size: 0.85em;
     }
+    
+    /* Company Stats - Small Mobile */
+    .company-stats {
+        gap: 1.2em;
+        margin: 1.5em 0;
+    }
+    
+    .stat-item {
+        padding: 1.2em 0.8em;
+    }
+    
+    .stat-number {
+        font-size: 1.8em;
+    }
+    
+    .stat-label {
+        font-size: 0.9em;
+    }
 }
 
 /* Small mobile styles (up to 320px) */
@@ -1519,6 +1541,25 @@ footer{
         padding: 0.6em 0.7em;
         font-size: 0.8em;
     }
+    
+    /* Company Stats - Very Small Mobile */
+    .company-stats {
+        gap: 1em;
+        margin: 1.2em 0;
+    }
+    
+    .stat-item {
+        padding: 1em 0.6em;
+    }
+    
+    .stat-number {
+        font-size: 1.6em;
+    }
+    
+    .stat-label {
+        font-size: 0.85em;
+        letter-spacing: 0.5px;
+    }
 }
 
 @media screen and (min-width:768px){
@@ -1584,6 +1625,29 @@ footer{
     
     .partners-list {
         justify-content: center;
+    }
+    
+    /* Company Stats - Tablet */
+    .company-stats {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 1.5em;
+        max-width: 100%;
+    }
+    
+    .stat-item {
+        flex: 1;
+        min-width: 0;
+        padding: 1.8em 1em;
+    }
+    
+    .stat-number {
+        font-size: 2.5em;
+    }
+    
+    .stat-label {
+        font-size: 0.95em;
     }
     
     /* Career Form - Tablet */
@@ -2013,9 +2077,26 @@ footer{
         }
         
         .company-stats {
+            display: flex;
+            flex-direction: row;
             justify-content: space-between;
-            max-width: 600px;
+            max-width: 700px;
             margin: 2em auto;
+            gap: 2em;
+        }
+        
+        .stat-item {
+            flex: 1;
+            padding: 2em 1.5em;
+            min-width: 0;
+        }
+        
+        .stat-number {
+            font-size: 2.8em;
+        }
+        
+        .stat-label {
+            font-size: 1em;
         }
         
         /* Career Form - Desktop */
