@@ -48,15 +48,134 @@
         </div>
     </header>
     <section class="pj-hero" id="Home">
-        <div class="pj-hero-con">
-            <h1>PALANIAPPA<br>ELECTRONICS</h1>
-            <p>One stop shop for<br> Hospitality, Mobility , Enterprise IT<br> & Connectivity Solutions</p>
-            <!-- <button>Try it for Free</button> -->
+        <div class="hero-slides">
+            <!-- Slide 1 - Original with Video -->
+            <div class="hero-slide active">
+                <div class="pj-hero-con">
+                    <h1>PALANIAPPA<br>ELECTRONICS</h1>
+                    <p>One stop shop for<br> Hospitality, Mobility , Enterprise IT<br> & Connectivity Solutions</p>
+                    <button class="hero-cta">Explore Our Solutions</button>
+                </div>
+                <div class="hero-img">
+                    <video width="100" autoplay muted loop playsinline>
+                        <source src="Samsung Indoor LED All-in-One_ This is the true all-in-one.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <!-- Slide 2 - QNED Display -->
+            <div class="hero-slide">
+                <div class="pj-hero-con">
+                    <h1>EXPERIENCE EVERY<br>COLOR REDEFINED</h1>
+                    <p>All-New QNED evo AI<br>Revolutionary display technology<br>with quantum precision</p>
+                    <button class="hero-cta">Learn More</button>
+                </div>
+                <div class="hero-img">
+                    <div class="display-showcase qned-display">
+                        <div class="display-grid">
+                            <div class="display-item large">
+                                <div class="screen">
+                                    <div class="screen-content qned-content1"></div>
+                                    <div class="brand-badge">LG QNED evo AI</div>
+                                </div>
+                            </div>
+                            <div class="display-item medium">
+                                <div class="screen">
+                                    <div class="screen-content qned-content2"></div>
+                                    <div class="brand-badge">QNED 86A</div>
+                                </div>
+                            </div>
+                            <div class="display-item small">
+                                <div class="screen">
+                                    <div class="screen-content qned-content3"></div>
+                                    <div class="brand-badge">QNED 8A</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3 - OLED Display -->
+            <div class="hero-slide">
+                <div class="pj-hero-con">
+                    <h1>SEE THE DETAILS OF<br>EVERY LIGHT AND DARK</h1>
+                    <p>LG OLED evo AI G5<br>World's No.1 OLED TV<br>for 12 years</p>
+                    <button class="hero-cta">Discover OLED</button>
+                </div>
+                <div class="hero-img">
+                    <div class="display-showcase oled-display">
+                        <div class="oled-container">
+                            <div class="main-display">
+                                <div class="screen">
+                                    <div class="screen-content oled-content"></div>
+                                    <div class="brand-badge">LG OLED evo AI G5</div>
+                                    <div class="processor-badge">
+                                        <span>Powered by</span>
+                                        <span>α11 AI Processor Gen2</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="award-badge">
+                                <div class="stars">★★★★★</div>
+                                <div class="award-text">WORLD'S No.1<br>OLED TV<br>FOR 12 YEARS</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4 - Product Range -->
+            <div class="hero-slide">
+                <div class="pj-hero-con">
+                    <h1>MEET THE PINNACLE<br>OF INNOVATION</h1>
+                    <p>Complete range of<br>Premium display solutions<br>for every need</p>
+                    <button class="hero-cta">View All Products</button>
+                </div>
+                <div class="hero-img">
+                    <div class="display-showcase product-range">
+                        <div class="product-lineup">
+                            <div class="product-display left">
+                                <div class="screen">
+                                    <div class="screen-content range-content1"></div>
+                                    <div class="model-badge">C5</div>
+                                </div>
+                            </div>
+                            <div class="product-display center">
+                                <div class="screen">
+                                    <div class="screen-content range-content2"></div>
+                                    <div class="model-badge">G5</div>
+                                </div>
+                            </div>
+                            <div class="product-display right">
+                                <div class="screen">
+                                    <div class="screen-content range-content3"></div>
+                                    <div class="model-badge">B5</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="award-corner">
+                            <div class="stars">★★★★★</div>
+                            <div class="award-text">WORLD'S No.1<br>OLED TV<br>FOR 12 YEARS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hero-img">
-            <video width="100" autoplay muted loop playsinline>
-                <source src="Samsung Indoor LED All-in-One_ This is the true all-in-one.mp4" type="video/mp4">
-            </video>
+
+        <!-- Navigation Dots -->
+        <div class="hero-navigation">
+            <div class="hero-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="hero-progress">
+            <div class="progress-bar"></div>
         </div>
     </section>
     <section class="pj-partner">
@@ -561,71 +680,5 @@
      </footer>
 </body>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script> 
-    AOS.init(); 
-    
-    // File upload functionality
-    document.addEventListener('DOMContentLoaded', function() {
-        const fileInput = document.getElementById('cv-upload');
-        const fileStatus = document.querySelector('.file-upload-status');
-        
-        if (fileInput) {
-            fileInput.addEventListener('change', function(e) {
-                const fileName = e.target.files[0] ? e.target.files[0].name : 'No file selected.';
-                fileStatus.textContent = fileName;
-            });
-        }
-        
-        // Animated counters and progress circles
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const progressCircles = document.querySelectorAll('.progress-circle');
-            const statCircles = document.querySelectorAll('.stat-circle');
-            
-            counters.forEach((counter, index) => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const increment = target / 100;
-                let current = 0;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    counter.textContent = Math.floor(current);
-                }, 30);
-            });
-            
-            // Animate progress circles
-            progressCircles.forEach((circle, index) => {
-                const statCircle = statCircles[index];
-                const percentage = parseInt(statCircle.getAttribute('data-percentage'));
-                const circumference = 2 * Math.PI * 65; // radius = 65
-                const offset = circumference - (percentage / 100) * circumference;
-                
-                setTimeout(() => {
-                    circle.style.strokeDashoffset = offset;
-                }, 500 + (index * 200));
-            });
-        }
-        
-        // Intersection Observer for triggering animation when section comes into view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.5
-        });
-        
-        const statsSection = document.querySelector('.pj-subtopics');
-        if (statsSection) {
-            observer.observe(statsSection);
-        }
-    });
-</script> 
+<script src="app.js"></script>
 </html>
