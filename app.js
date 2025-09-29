@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = document.querySelectorAll('.dot');
     const progressBar = document.querySelector('.progress-bar');
     const totalSlides = slides.length;
-    const slideInterval = 4000; // 4 seconds per slide for faster scrolling
+    
+    // Different timing for each slide
+    const slideTiming = [15000, 5000, 5000, 5000]; // 15s for first slide, 5s for others
     
     let slideTimer;
     
@@ -34,13 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
             dots[index].classList.add('active');
         }
         
-        // Reset and start progress bar animation
+        // Reset and start progress bar animation with current slide timing
+        const currentTiming = slideTiming[index] || 5000;
         if (progressBar) {
             progressBar.style.transition = 'none';
             progressBar.style.width = '0%';
             
             setTimeout(() => {
-                progressBar.style.transition = `width ${slideInterval}ms linear`;
+                progressBar.style.transition = `width ${currentTiming}ms linear`;
                 progressBar.style.width = '100%';
             }, 50);
         }
@@ -49,18 +52,22 @@ document.addEventListener('DOMContentLoaded', function() {
     function nextSlide() {
         currentSlide = (currentSlide + 1) % totalSlides;
         showSlide(currentSlide);
-        console.log('Auto-scrolled to slide:', currentSlide + 1); // Debug log
+        console.log('Auto-scrolled to slide:', currentSlide + 1, `- Duration: ${slideTiming[currentSlide]}ms`); // Debug log
     }
     
     function startSlideshow() {
         console.log('Starting auto-slideshow...'); // Debug log
-        slideTimer = setInterval(nextSlide, slideInterval);
+        const currentTiming = slideTiming[currentSlide] || 5000;
+        slideTimer = setTimeout(() => {
+            nextSlide();
+            startSlideshow(); // Recursively call to use different timing for each slide
+        }, currentTiming);
     }
     
     function stopSlideshow() {
         console.log('Stopping slideshow...'); // Debug log
         if (slideTimer) {
-            clearInterval(slideTimer);
+            clearTimeout(slideTimer);
             slideTimer = null;
         }
     }
