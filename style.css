@@ -142,8 +142,8 @@ input[type="checkbox"]:checked + div .nav-ref ul {
 
 /* Hero Section - Mobile First */
 .pj-hero{
-    padding: 8em 1em 4em 1em;
-    background: linear-gradient(to bottom, #67E7EF 0%, #8AEAEF 30%, #B8F0F5 70%, #E8F9FB 100%);
+    padding: 0; /* Remove padding from main container */
+    background: transparent; /* Remove background from main container */
     overflow: hidden;
     width: 100%;
     max-width: 100vw;
@@ -158,6 +158,7 @@ input[type="checkbox"]:checked + div .nav-ref ul {
     position: relative;
     width: 100%;
     height: 100%;
+    min-height: 100vh;
 }
 
 .hero-slide {
@@ -167,8 +168,91 @@ input[type="checkbox"]:checked + div .nav-ref ul {
     justify-content: center;
     width: 100%;
     height: 100%;
+    min-height: 100vh; /* Ensure full height coverage */
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 8em 1em 4em 1em; /* Move padding to individual slides */
+    box-sizing: border-box;
+}
+
+/* Individual Slide Backgrounds */
+.hero-slide:nth-child(1) {
+    /* First slide - keep original gradient */
+    background: linear-gradient(to bottom, #67E7EF 0%, #8AEAEF 30%, #B8F0F5 70%, #E8F9FB 100%);
+}
+
+.hero-slide:nth-child(2) {
+    /* Second slide - vibrant colorful gradient inspired by QNED displays */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+}
+
+.hero-slide:nth-child(3) {
+    /* Third slide - dark sophisticated gradient for OLED */
+    background: linear-gradient(135deg, #2c1810 0%, #8b4513 25%, #4a0080 50%, #800080 75%, #1a1a2e 100%);
+}
+
+.hero-slide:nth-child(4) {
+    /* Fourth slide - warm gradient for product range */
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 25%, #ff9a9e 50%, #fecfef 75%, #fecfef 100%);
+}
+
+/* Text color adjustments for different backgrounds */
+.hero-slide:nth-child(1) .pj-hero-con h1,
+.hero-slide:nth-child(1) .pj-hero-con p {
+    color: #024959; /* Original dark blue for light background */
+}
+
+.hero-slide:nth-child(2) .pj-hero-con h1,
+.hero-slide:nth-child(2) .pj-hero-con p {
+    color: #ffffff; /* White text for colorful background */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow for better readability */
+}
+
+.hero-slide:nth-child(3) .pj-hero-con h1,
+.hero-slide:nth-child(3) .pj-hero-con p {
+    color: #ffffff; /* White text for dark OLED background */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Strong shadow for dark background */
+}
+
+.hero-slide:nth-child(4) .pj-hero-con h1,
+.hero-slide:nth-child(4) .pj-hero-con p {
+    color: #2c3e50; /* Dark text for light warm background */
+}
+
+/* CTA Button adjustments for different backgrounds */
+.hero-slide:nth-child(2) .hero-cta {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: #667eea;
+    border: 2px solid #667eea;
+}
+
+.hero-slide:nth-child(2) .hero-cta:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 2px solid transparent;
+}
+
+.hero-slide:nth-child(3) .hero-cta {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    color: white;
+    border: 2px solid #8b5cf6;
+}
+
+.hero-slide:nth-child(3) .hero-cta:hover {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    color: #8b5cf6;
+    border: 2px solid #8b5cf6;
+}
+
+.hero-slide:nth-child(4) .hero-cta {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    color: white;
+    border: 2px solid #ff6b6b;
 }
 
 .hero-slide.active {
@@ -269,14 +353,17 @@ input[type="checkbox"]:checked + div .nav-ref ul {
 
 .display-item.large {
     flex: 2;
+    min-height: 220px;
 }
 
 .display-item.medium {
     flex: 1.5;
+    min-height: 180px;
 }
 
 .display-item.small {
     flex: 1;
+    min-height: 140px;
 }
 
 .screen {
@@ -294,6 +381,21 @@ input[type="checkbox"]:checked + div .nav-ref ul {
     background-size: cover;
     background-position: center;
     animation: shimmer 3s ease-in-out infinite alternate;
+    overflow: hidden;
+    border-radius: 4px;
+    position: relative;
+}
+
+.screen-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* Content Backgrounds */
@@ -402,6 +504,7 @@ input[type="checkbox"]:checked + div .nav-ref ul {
 .product-display {
     flex: 1;
     height: 80%;
+    min-height: 200px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0,0,0,0.2);
@@ -2334,29 +2437,42 @@ footer{
         
         /* Hero Section - Desktop */
         .pj-hero {
-            padding: 4em 3em;
+            padding: 0; /* Remove padding from main container */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             z-index: 1;
         }
         
+        .hero-slides {
+            width: 100%;
+            height: 100%;
+            min-height: 100vh;
+            position: relative;
+        }
+        
         .hero-slide {
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
-            gap: 3em;
+            justify-content: center;
+            gap: 4em;
+            width: 100%;
+            max-width: none; /* Remove max-width limitation */
+            margin: 0;
+            padding: 8em 3em 4em 3em; /* Move padding to individual slides */
+            min-height: 100vh; /* Ensure full coverage */
         }
         
         .pj-hero-con{
             flex: 1;
             text-align: left;
             margin-bottom: 0;
-            margin-left: 2em;
+            margin-left: 1em; /* Reduced margin for better balance */
+            padding: 2em 0; /* Added padding for breathing space */
         }
         
         .pj-hero-con h1{
-            font-size: 3.5em;
+            font-size: 3.2em; /* Slightly reduced for better proportion */
             padding: 0.4em 0;
             line-height: 1.1;
             text-align: left;
@@ -2365,31 +2481,32 @@ footer{
         .pj-hero-con p{
             margin: 0;
             padding: 0.8em 0 1.5em 0;
-            font-size: 1.3em;
+            font-size: 1.2em; /* Slightly reduced for balance */
             text-align: left;
         }
         
         .hero-cta{
             font-size: 1em;
             padding: 1.2em 2.5em;
-            margin: 0;
+            margin: 1em 0 0 0; /* Added top margin for spacing */
             border-radius: 8px;
         }
         
         .hero-img{
             flex: 1;
-            max-width: 60%;
-            margin: 0;
+            max-width: 55%; /* Slightly reduced for better proportion */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 2em; /* Added padding around video container */
         }
         
         .hero-img video{
             width: 100%;
-            height: 500px;
+            height: 480px; /* Slightly reduced height */
             border-radius: 15px;
             object-position: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
         }
         
         /* Desktop Display Showcase */
